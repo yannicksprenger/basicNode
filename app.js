@@ -5,11 +5,10 @@ var server = http.createServer(app);
 var bodyParser = require('body-parser');
 var ejs = require("ejs");
 var mongoose = require('mongoose');
-var port = process.env.PORT;
 
 const io = require('socket.io')(server);
 
-server.listen(port || 8080, function(){
+server.listen(process.env.PORT || 8080, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 

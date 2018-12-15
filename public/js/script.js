@@ -13,9 +13,10 @@ $(document).on("ready", function(){
 	});
 
 	//WEBSOCKETS
-	var socket = io(window.location.origin + ":" + port);
+	console.log(process);
+	var socket = io(window.location.origin + ":" + process.env.PORT);
 	console.log(socket);
-	console.log(window.location.origin + ":" + port);
+	console.log(window.location.origin + ":" + process.env.PORT);
 	$("#socket_yay_buton").on("click", function(){
 		socket.emit('prueba_socketss', 123, "hola");
 	});
