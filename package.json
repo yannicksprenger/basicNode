@@ -2,6 +2,7 @@
 	"name": "Nombre-del-proyecto",
 	"description": "learning node js",
 	"version": "0.0.1",
+	"main": "app.js",
 	"dependencies": {
 		"body-parser": "^1.18.3",
 		"ejs": "^2.6.1",
