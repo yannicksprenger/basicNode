@@ -6,11 +6,11 @@ var bodyParser = require('body-parser');
 var ejs = require("ejs");
 var mongoose = require('mongoose');
 
-const io = require('socket.io')(server);
-
 server.listen(process.env.PORT || 8080, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
+
+const io = require('socket.io')(server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

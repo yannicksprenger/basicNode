@@ -13,15 +13,12 @@ $(document).on("ready", function(){
 	});
 
 	//WEBSOCKETS
-	console.log(process);
-	var socket = io(window.location.origin + ":" + process.env.PORT);
-	console.log(socket);
-	console.log(window.location.origin + ":" + process.env.PORT);
+
 	$("#socket_yay_buton").on("click", function(){
-		socket.emit('prueba_socketss', 123, "hola");
+		io.emit('prueba_socketss', 123, "hola");
 	});
 
-	socket.on('respuesta_server', function(var1){
+	io.on('respuesta_server', function(var1){
 		$('#resultado_websockets_campo').text(var1);
 	});
 });
