@@ -13,8 +13,8 @@ $(document).on("ready", function(){
 	});
 
 	//WEBSOCKETS
-	var socket = io('https://yannick-basic-node-dev.herokuapp.com/' + process.env.PORT);
-
+	var socket = io(process.env.HOSTNAME + ":" + process.env.PORT);
+	console.log(socket);
 	$("#socket_yay_buton").on("click", function(){
 		socket.emit('prueba_socketss', 123, "hola");
 	});
