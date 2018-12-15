@@ -13,7 +13,7 @@ $(document).on("ready", function(){
 	});
 
 	//WEBSOCKETS
-	var socket = io('localhost:3000');
+	var socket = io('https://yannick-basic-node-dev.herokuapp.com/' + process.env.PORT);
 
 	$("#socket_yay_buton").on("click", function(){
 		socket.emit('prueba_socketss', 123, "hola");
