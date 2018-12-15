@@ -13,8 +13,9 @@ $(document).on("ready", function(){
 	});
 
 	//WEBSOCKETS
-	var socket = io(process.env.HOSTNAME + ":" + process.env.PORT);
+	var socket = io(window.location.origin + ":" + port);
 	console.log(socket);
+	console.log(window.location.origin + ":" + port);
 	$("#socket_yay_buton").on("click", function(){
 		socket.emit('prueba_socketss', 123, "hola");
 	});
