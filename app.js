@@ -2,18 +2,19 @@ var express = require("express");
 var app = express();
 var http = require("http");
 var server = http.createServer(app);
-var bodyparser = require("body-parser");
+var bodyParser = require('body-parser');
 var ejs = require("ejs");
 var mongoose = require('mongoose');
 
-console.log(process.env.PORT);
-app.set('port', process.env.PORT || 8080);
+const io = require('socket.io')(server);
 
-server.listen(port);
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({
-	extended: false
-}));
+server.listen(process.env.PORT || 8080, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 app.set("views", __dirname +"/views");
 app.use(express.static(__dirname +"/public"));
@@ -25,9 +26,6 @@ app.set('view engine', 'ejs');
 // var db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'connection error:'));
 
-//WebSocketsss
-const server_socket = require('http').createServer();
-const io = require('socket.io')(server_socket);
 
 io.on('connection', socket => {
 	socket.on('prueba_socketss', (var1, var2) => {
